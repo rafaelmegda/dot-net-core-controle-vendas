@@ -12,6 +12,7 @@ namespace projetoControleVendas.Models
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public double Salario { get; set; }
+        public Departamento Departamento { get; set; }
         public ICollection<RegistroVenda> RegistrosVendas { get; set; } = new List<RegistroVenda>();
 
         public Vendedor()
@@ -19,13 +20,14 @@ namespace projetoControleVendas.Models
 
         }
 
-        public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salario)
+        public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salario, Departamento departamento)
         {
             Id = id;
             Nome = nome;
             Email = email;
             DataNascimento = dataNascimento;
             Salario = salario;
+            Departamento = departamento;
         }
 
         //add venda para vendedor

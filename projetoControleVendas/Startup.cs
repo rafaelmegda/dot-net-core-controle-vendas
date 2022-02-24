@@ -39,14 +39,18 @@ namespace projetoControleVendas
             services.AddDbContext<projetoControleVendasContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("projetoControleVendasContext"), builder =>
                         builder.MigrationsAssembly("projetoControleVendas")));
+
+            services.AddScoped<SeedingServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingServices seedingServices)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //preenche a base de dados de Dev
+                seedingServices.popularBaseDados();
             }
             else
             {

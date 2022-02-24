@@ -17,5 +17,9 @@ namespace projetoControleVendas.Data
         public DbSet<projetoControleVendas.Models.Departamento> Departamento { get; set; }
         public DbSet<projetoControleVendas.Models.Vendedor> Vendedor { get; set; }
         public DbSet<projetoControleVendas.Models.RegistroVenda> RegistroVenda { get; set; }
+
+        //Comandas gerar migration
+        //Add-Migration nomeMigration
+        //Update-Database
     }
 }

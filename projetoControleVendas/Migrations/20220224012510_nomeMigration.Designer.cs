@@ -9,8 +9,8 @@ using projetoControleVendas.Data;
 namespace projetoControleVendas.Migrations
 {
     [DbContext(typeof(projetoControleVendasContext))]
-    [Migration("20220218200516_Entidades-Vendedor-RegistroVendas")]
-    partial class EntidadesVendedorRegistroVendas
+    [Migration("20220224012510_nomeMigration")]
+    partial class nomeMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,6 @@ namespace projetoControleVendas.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int?>("DepartamentoId");
-
                     b.Property<double>("Quantidade");
 
                     b.Property<int>("Status");
@@ -47,8 +45,6 @@ namespace projetoControleVendas.Migrations
                     b.Property<int?>("VendedorId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DepartamentoId");
 
                     b.HasIndex("VendedorId");
 
@@ -79,10 +75,6 @@ namespace projetoControleVendas.Migrations
 
             modelBuilder.Entity("projetoControleVendas.Models.RegistroVenda", b =>
                 {
-                    b.HasOne("projetoControleVendas.Models.Departamento", "Departamento")
-                        .WithMany()
-                        .HasForeignKey("DepartamentoId");
-
                     b.HasOne("projetoControleVendas.Models.Vendedor", "Vendedor")
                         .WithMany("RegistrosVendas")
                         .HasForeignKey("VendedorId");
@@ -90,7 +82,7 @@ namespace projetoControleVendas.Migrations
 
             modelBuilder.Entity("projetoControleVendas.Models.Vendedor", b =>
                 {
-                    b.HasOne("projetoControleVendas.Models.Departamento")
+                    b.HasOne("projetoControleVendas.Models.Departamento", "Departamento")
                         .WithMany("Vendedores")
                         .HasForeignKey("DepartamentoId");
                 });

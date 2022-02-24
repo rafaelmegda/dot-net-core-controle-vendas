@@ -9,7 +9,6 @@ namespace projetoControleVendas.Models
         public DateTime Data { get; set; }
         public double Quantidade { get; set; }
         public StatusVenda Status { get; set; }
-        public Departamento Departamento { get; set; }
         public Vendedor Vendedor { get; set; }
 
         public RegistroVenda()
@@ -17,13 +16,12 @@ namespace projetoControleVendas.Models
 
         }
 
-        public RegistroVenda(int id, DateTime data, double quantidade, StatusVenda status, Departamento departamento, Vendedor vendedor)
+        public RegistroVenda(int id, DateTime data, double quantidade, StatusVenda status, Vendedor vendedor)
         {
             Id = id;
             Data = data;
             Quantidade = quantidade;
             Status = status;
-            Departamento = departamento;
             Vendedor = vendedor;
         }
     }

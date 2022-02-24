@@ -36,8 +36,6 @@ namespace projetoControleVendas.Migrations
 
                     b.Property<DateTime>("Data");
 
-                    b.Property<int?>("DepartamentoId");
-
                     b.Property<double>("Quantidade");
 
                     b.Property<int>("Status");
@@ -45,8 +43,6 @@ namespace projetoControleVendas.Migrations
                     b.Property<int?>("VendedorId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DepartamentoId");
 
                     b.HasIndex("VendedorId");
 
@@ -77,10 +73,6 @@ namespace projetoControleVendas.Migrations
 
             modelBuilder.Entity("projetoControleVendas.Models.RegistroVenda", b =>
                 {
-                    b.HasOne("projetoControleVendas.Models.Departamento", "Departamento")
-                        .WithMany()
-                        .HasForeignKey("DepartamentoId");
-
                     b.HasOne("projetoControleVendas.Models.Vendedor", "Vendedor")
                         .WithMany("RegistrosVendas")
                         .HasForeignKey("VendedorId");
@@ -88,7 +80,7 @@ namespace projetoControleVendas.Migrations
 
             modelBuilder.Entity("projetoControleVendas.Models.Vendedor", b =>
                 {
-                    b.HasOne("projetoControleVendas.Models.Departamento")
+                    b.HasOne("projetoControleVendas.Models.Departamento", "Departamento")
                         .WithMany("Vendedores")
                         .HasForeignKey("DepartamentoId");
                 });
