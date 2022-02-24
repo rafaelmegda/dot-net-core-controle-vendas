@@ -6,3 +6,6 @@ Objetivo deste projeto é estudar os conceitos básicos do .Net Core MVC para ap
 
 ## Versão .Net Core 2.1
 * https://dotnet.microsoft.com/en-us/download/dotnet/2.1
+
+## Tema Boostrap
+* https://bootswatch.com/3/
